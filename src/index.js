@@ -10,3 +10,16 @@ ReactDOM.render(<App/>, document.getElementById('root'));
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
+
+
+const getUser = async id => {
+    let res = await fetch(`https://jsonplaceholder.typicode.com/users/${id}`);
+    return await res.json();
+};
+
+const showUser = async id => {
+    const user = await getUser(id);
+    console.log(user);
+};
+
+showUser(1);
